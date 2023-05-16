@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BUBBLES APP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="h1">"BUBBLES APP"</div>
+    <div style="text-align: center;">
+	<canvas id="myCanvas" width="650px" height="500px" style="border: 2px double black"></canvas>
+</div>
+    <div class="reset_button">
+        <button>RESET</button>
+    </div>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+       
+		
+		// Draw 4 circles with different colors on the left side
+		ctx.beginPath();
+		ctx.fillStyle = "red";
+		ctx.arc(100, 100, 45, 0, Math.PI*2);
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.fillStyle = "green";
+		ctx.arc(100, 200, 45, 0, Math.PI*2);
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.fillStyle = "blue";
+		ctx.arc(100, 300, 45, 0, Math.PI*2);
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.fillStyle = "yellow";
+		ctx.arc(100, 400, 45, 0, Math.PI*2);
+		ctx.fill();
+		
+		
+
+		function drawArrow(x1, y1, x2, y2, color) {
+        const angle = Math.atan2(y2 - y1, x2 - x1);
+        const arrowSize = 30;
+		
+
+        ctx.beginPath();
+		ctx.lineWidth = 2;
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = color;
+        ctx.stroke();
+		
+		
+
+        ctx.beginPath();
+        ctx.moveTo(x2, y2);
+        ctx.lineTo(x2 - arrowSize * Math.cos(angle - Math.PI / 6), y2 - arrowSize * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(x2 - arrowSize * Math.cos(angle + Math.PI / 6), y2 - arrowSize * Math.sin(angle + Math.PI / 6));
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+		
+		
+		
+      }
+
+      //Draw a single line arrow
+      drawArrow(10000, 170, 510,120, "grey");
+      drawArrow(10000, 250, 510,200, "grey");
+      drawArrow(10000, 400, 510,300, "grey");
+      drawArrow(10000, 500, 510,400, "grey");
+
+
+
+
+
+		
+	</script>
+</body>
+</html>

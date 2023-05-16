@@ -1,0 +1,17 @@
+.reset_button{
+    position: relative;
+    top: 20px;
+    left: 1020px;
+   
+}   
+
+.h1{
+    text-align: center;
+    font-size: 40px;
+    font-family: sans-serif;
+    padding-bottom: auto;
+    margin-top:auto;
+    margin-bottom: 5px;
+    color: black;
+    
+}
